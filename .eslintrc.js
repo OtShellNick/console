@@ -25,6 +25,8 @@ module.exports = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    'import/no-unresolved': 'off',
+    'react/button-has-type': 'off',
   },
   settings: {
     'import/resolver': {
@@ -32,6 +34,9 @@ module.exports = {
         map: [
           ['@', './src'],
           ['@components', './src/components'],
+          ['@assets', './src/assets'],
+          ['@style', './src/style'],
+          ['@containers', './src/containers'],
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       },

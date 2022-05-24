@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const { NODE_ENV } = process.env;
 const IsDev = process.env.NODE_ENV === 'development';
@@ -53,6 +54,10 @@ const jsLoaders = () => {
 };
 
 const plugins = () => [
+  new FaviconsWebpackPlugin({
+    logo: path.resolve(__dirname, './src/assets/favicon.png'),
+    prefix: 'icons-[fullhash]/',
+  }),
   new HTMLWebpackPlugin({
     template: './src/index.html',
   }),
@@ -69,6 +74,9 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@components': path.resolve(__dirname, './src/components'),
+      '@assets': path.resolve(__dirname, './src/assets'),
+      '@style': path.resolve(__dirname, './src/style'),
+      '@containers': path.resolve(__dirname, './src/containers'),
     },
   },
   mode: NODE_ENV || 'production',
@@ -157,7 +165,6 @@ module.exports = {
   },
   devServer: {
     port: 3000,
-    hot: true,
     static: './build',
     historyApiFallback: true,
   },

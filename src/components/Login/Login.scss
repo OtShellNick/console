@@ -1,0 +1,39 @@
+$login-text-color: #444444;
+
+.login {
+  height: calc(100vh - 40px);
+  width: calc(100vw - 40px);
+  padding: 20px;
+  position: relative;
+  background-image: url("./assets/signup-bg.jpg");
+
+  &__logo {
+    height: 46px;
+    background-image: url("./assets/logo_dark.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__wrap-form {
+    padding: 10px;
+    position: absolute;
+    top: 50vh;
+    left: 40vw;
+
+    &_heading {
+      display: flex;
+      align-items: center;
+      color: $login-text-color;
+
+      & h3 {
+        margin: 0;
+      }
+    }
+
+    &_svg {
+      width: 44px;
+      height: 44px;
+      fill: $login-text-color;
+    }
+  }
+}
