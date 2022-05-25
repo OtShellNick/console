@@ -1,6 +1,9 @@
+@import "colors";
+
 body {
   font-family:"Open Sans",sans-serif;
   font-weight:400;
+  background-color: $main_background_color;
 }
 
 svg {

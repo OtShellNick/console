@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { Button } from '@mui/material';
 
 import IconLock from '@assets/lock.svg?tsx';
-import Button from '@containers/Button/Button';
+
+import LoginForm from '@components/Login/components/LoginForm';
+import RegisterForm from '@components/Login/components/RegisterForm';
 
 import './Login.scss';
 
@@ -18,11 +21,15 @@ const Login = () => {
             <small>Please enter your credentials</small>
           </div>
           <Button
-            className="login__wrap-form_btn"
-            text={isLogin ? 'Register' : 'Login'}
-            onPress={() => setIsLogin((prevState) => !prevState)}
-          />
+            size="small"
+            variant="contained"
+            onClick={() => setIsLogin((prevState) => !prevState)}
+            color="inherit"
+          >
+            {isLogin ? 'Register' : 'Login'}
+          </Button>
         </div>
+        {isLogin ? <LoginForm /> : <RegisterForm />}
       </div>
     </div>
   );

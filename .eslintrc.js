@@ -26,7 +26,11 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error'],
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'import/no-unresolved': 'off',
-    'react/button-has-type': 'off',
+    'react/button-has-type': [2, {
+      button: true,
+      submit: true,
+      reset: true,
+    }],
   },
   settings: {
     'import/resolver': {

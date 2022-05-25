@@ -1,4 +1,4 @@
-$login-text-color: #444444;
+@import "@style/main.scss";
 
 .login {
   height: calc(100vh - 40px);
@@ -6,6 +6,7 @@ $login-text-color: #444444;
   padding: 20px;
   position: relative;
   background-image: url("./assets/signup-bg.jpg");
+  background-position: center;
 
   &__logo {
     height: 46px;
@@ -15,13 +16,20 @@ $login-text-color: #444444;
   }
 
   &__wrap-form {
+    min-width: 360px;
     padding: 10px;
     position: absolute;
-    top: 50vh;
-    left: 40vw;
+    top: 35%;
+    left: 40%;
+    background-color: $main_background_color;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    box-shadow: 0 5px 24px 3px $login-text-color;
 
     &_heading {
       display: flex;
+      justify-content: space-between;
+      margin: 20px 0 30px;
       align-items: center;
       color: $login-text-color;
 
@@ -34,6 +42,15 @@ $login-text-color: #444444;
       width: 44px;
       height: 44px;
       fill: $login-text-color;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    & .MuiTextField-root {
+      margin-bottom: 10px;
     }
   }
 }
