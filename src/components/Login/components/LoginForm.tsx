@@ -3,6 +3,8 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Button, TextField } from '@mui/material';
 
+import Login from '@actions/User';
+
 const LoginForm = () => (
   <Formik
     initialValues={{ email: '', password: '' }}
@@ -18,9 +20,14 @@ const LoginForm = () => (
           .min(8, 'Password should be of minimum 8 characters length')
           .required('Password is required'),
       })}
-    onSubmit={(values, { setSubmitting }) => {
-      console.log(values);
-      setSubmitting(false);
+    onSubmit={async (values, { setSubmitting }) => {
+      setSubmitting(true);
+      try {
+        const user = await Login(values);
+        console.log('user', user);
+      } catch (e) {
+        console.log('err', e);
+      }
     }}
   >
     {({
@@ -44,6 +51,7 @@ const LoginForm = () => (
         />
         <TextField
           size="small"
+          type="password"
           required
           id="outlined-required"
           name="password"

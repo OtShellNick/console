@@ -4,6 +4,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const { NODE_ENV } = process.env;
 const IsDev = process.env.NODE_ENV === 'development';
@@ -54,6 +55,14 @@ const jsLoaders = () => {
 };
 
 const plugins = () => [
+  new CopyPlugin({
+    patterns: [
+      {
+        from: path.resolve(__dirname, './config'),
+        to: 'config',
+      },
+    ],
+  }),
   new FaviconsWebpackPlugin({
     logo: path.resolve(__dirname, './src/assets/favicon.png'),
     prefix: 'icons-[fullhash]/',
@@ -77,10 +86,13 @@ module.exports = {
       '@assets': path.resolve(__dirname, './src/assets'),
       '@style': path.resolve(__dirname, './src/style'),
       '@containers': path.resolve(__dirname, './src/containers'),
+      '@helpers': path.resolve(__dirname, './src/helpers'),
+      '@actions': path.resolve(__dirname, './src/actions'),
     },
   },
   mode: NODE_ENV || 'production',
   entry: ['@babel/polyfill', path.resolve(__dirname, './src/index.tsx')],
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, './build'),
     filename: '[name].bundle.js',
@@ -164,7 +176,7 @@ module.exports = {
     ],
   },
   devServer: {
-    port: 3000,
+    port: 8088,
     static: './build',
     historyApiFallback: true,
   },

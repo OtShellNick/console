@@ -28,6 +28,7 @@
     "@typescript-eslint/parser": "^5.26.0",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -59,6 +60,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
+    "sbx-client-request": "^0.2.5",
     "yup": "^0.32.11"
   }
 }
