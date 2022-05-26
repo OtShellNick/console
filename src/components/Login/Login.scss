@@ -49,8 +49,17 @@
     display: flex;
     flex-direction: column;
 
-    & .MuiTextField-root {
+    & .MuiTextField-root, .MuiFormGroup-root {
       margin-bottom: 10px;
+    }
+
+    &_password {
+      display: flex;
+      justify-content: space-between;
+
+      & .MuiTextField-root {
+        max-width: 49%;
+      }
     }
   }
 }
