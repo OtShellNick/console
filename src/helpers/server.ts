@@ -1,7 +1,8 @@
 import Server from 'sbx-client-request';
 
-const { stage } = CONFIG;
-const { REST: { protocol, host, port }, VERSION: { version } } = stage;
+// @ts-ignore
+// eslint-disable-next-line no-undef
+const { REST: { protocol, host, port }, VERSION: { version } } = CONFIG[CONFIG_NAME];
 
 const url: string = `${protocol}://${host}:${port}/${version}/`;
 

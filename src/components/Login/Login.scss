@@ -16,11 +16,9 @@
   }
 
   &__wrap-form {
-    min-width: 360px;
+    max-width: 360px;
     padding: 10px;
-    position: absolute;
-    top: 35%;
-    left: 40%;
+    margin: 10% auto;
     background-color: $main_background_color;
     border: 1px solid $border-color;
     border-radius: 3px;
@@ -60,6 +58,10 @@
       & .MuiTextField-root {
         max-width: 49%;
       }
+    }
+
+    & .MuiFormHelperText-root {
+      margin-bottom: 10px;
     }
   }
 }

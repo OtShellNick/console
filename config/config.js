@@ -19,4 +19,24 @@ const CONFIG = {
       version: 'v1',
     },
   },
+  prod: {
+    REST: {
+      protocol: 'https',
+      host: 'console-rest.sobix.io',
+      port: '8080',
+    },
+    FILES: {
+      protocol: 'https',
+      host: 'console-rest.sobix.io',
+      post: '8080',
+    },
+    SOCKET: {
+      protocol: 'wss',
+      host: 'console-rest.sobix.io',
+      port: '8090',
+    },
+    VERSION: {
+      version: 'v2',
+    },
+  },
 };

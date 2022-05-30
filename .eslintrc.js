@@ -31,16 +31,18 @@ module.exports = {
       submit: true,
       reset: true,
     }],
+    'default-param-last': 'off',
   },
   settings: {
     'import/resolver': {
       alias: {
         map: [
-          ['@', './src'],
-          ['@components', './src/components'],
-          ['@assets', './src/assets'],
-          ['@style', './src/style'],
-          ['@containers', './src/containers'],
+          ['@/*', './src/*'],
+          ['@components/*', './src/components/*'],
+          ['@assets/*', './src/assets/*'],
+          ['@style/*', './src/style/*'],
+          ['@containers/*', './src/containers/*'],
+          ['@store/*', './store/*'],
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       },
