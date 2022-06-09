@@ -8,7 +8,6 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 const { NODE_ENV, CONFIG_NAME } = process.env;
 const IsDev = NODE_ENV === 'development';
-console.log(CONFIG_NAME);
 
 const filename = (ext) => (IsDev ? `[name].${ext}` : `[name].[contenthash].${ext}`);
 
@@ -121,14 +120,14 @@ module.exports = {
             use: ['@svgr/webpack'],
           },
           {
+            resourceQuery: /jsx/,
+            use: ['@svgr/webpack'],
+          },
+          {
             use: 'url-loader',
           },
         ],
         issuer: /\.[jt]sx?$/,
-      },
-      {
-        test: /\.svg$/,
-
       },
       {
         test: /\.(jpe?g|png|gif)$/,
@@ -154,7 +153,7 @@ module.exports = {
       },
       {
         test: /\.jsx$/,
-        exclude: /node_modules/,
+        include: [/sbx-.+/, /src/],
         use: [
           {
             loader: 'babel-loader',
@@ -164,7 +163,7 @@ module.exports = {
       },
       {
         test: /\.tsx$/,
-        exclude: /node_modules/,
+        include: [/sbx-.+/, /src/],
         use: [
           {
             loader: 'babel-loader',

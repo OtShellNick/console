@@ -3,15 +3,8 @@ export type TLoginData = {
     password: string
 }
 
-export type TLoginError = {
-    code: number,
-    type: string,
-    message: string,
-    data: object
-}
-
 export type TLoginResponseData = {
-id: number,
+    id: number,
     email: string[],
     phone: string[],
     slackId: string,

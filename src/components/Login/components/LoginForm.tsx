@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Button, TextField, FormHelperText } from '@mui/material';
 
-import { Login } from '@actions/Users/User';
+import { login } from '@actions/Users/User';
 import { loginUser } from '@store/actions/userActions';
 
 type LocationState = {
@@ -19,7 +19,8 @@ const LoginForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { from } = location.state as LocationState;
+
+  const { from } = location.state as LocationState || { from: { pathname: '/' } };
   const forward = from ? from?.pathname : '/';
 
   return (
@@ -40,7 +41,7 @@ const LoginForm = () => {
       onSubmit={async (values, { setSubmitting }) => {
         setSubmitting(true);
         try {
-          const user = await Login(values);
+          const user = await login(values);
           dispatch(loginUser(user));
           setSubmitting(false);
           navigate(forward, { replace: true });

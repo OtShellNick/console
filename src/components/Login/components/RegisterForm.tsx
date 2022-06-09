@@ -6,7 +6,7 @@ import {
   Button, TextField, FormLabel, FormControlLabel, Radio, RadioGroup, FormHelperText,
 } from '@mui/material';
 import { TRegisterValues } from '@actions/Users/UsersTypes';
-import { Register } from '@actions/Users/User';
+import { register } from '@actions/Users/User';
 import { loginUser } from '@store/actions/userActions';
 
 const RegisterForm = () => {
@@ -38,8 +38,7 @@ const RegisterForm = () => {
         const registerData = values;
         delete registerData.repeatPassword;
         try {
-          const user = Register(registerData);
-          console.log(user);
+          const user = register(registerData);
           dispatch(loginUser(user));
           setSubmitting(false);
         } catch (e) {
@@ -49,7 +48,13 @@ const RegisterForm = () => {
       }}
     >
       {({
-        values, errors, touched, isSubmitting, handleSubmit, handleBlur, handleChange,
+        values,
+        errors,
+        touched,
+        isSubmitting,
+        handleSubmit,
+        handleBlur,
+        handleChange,
       }) => (
         <form className="login__form" onSubmit={handleSubmit}>
           <TextField

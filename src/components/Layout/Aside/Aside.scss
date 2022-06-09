@@ -1,0 +1,25 @@
+@import "@style/main.scss";
+
+.aside {
+  height: 100vh;
+  background-color: $aside-background-color;
+
+  &__logo img {
+    max-width: 30px;
+  }
+
+  &__nav {
+
+  }
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &_item {
+    width: 50%;
+    cursor: pointer;
+  }
+}

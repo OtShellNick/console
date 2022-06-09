@@ -1,0 +1,136 @@
+@import "@style/main.scss";
+
+$bg-color_dark: #1e1f26;
+$color_dark: #fff;
+$box-shadow_dark: 0 0 2px 0 #000, 0 1px 3px 0 #111;
+$triangle-box-shadow_dark: -1px -1px 2px -1px #000;
+
+$bg-color_light: #f5f7f8;
+$color_light: #4c4c4c;
+$box-shadow_light: 0 0 1px 0 #494949;
+$triangle-box-shadow_light: -1px -1px 2px -1px #393939;
+
+.appDropdown{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background-color: $notify-background-color;
+  border-radius: 3px;
+}
+
+.appDropdown__triangle{
+  position: absolute;
+  border-radius: 2px 0 0 0;
+}
+
+.theme_dark{
+  .appDropdown{
+    background-color: $bg-color_dark;
+    color: $color_dark;
+    box-shadow: $box-shadow_dark;
+  }
+  .appDropdown__content{
+    background-color: $bg-color_dark;
+  }
+  .appDropdown__triangle{
+    background-color: $bg-color_dark;
+    box-shadow: $box-shadow_dark;
+  }
+}
+.theme_light{
+  .appDropdown{
+    color: $color_light;
+    box-shadow: $box-shadow_light;
+  }
+  .appDropdown__content{
+    background-color: $bg-color_light;
+  }
+  .appDropdown__triangle{
+    background-color: $bg-color_light;
+    box-shadow: $box-shadow_light;
+  }
+}
+
+.appDropdown__content{
+  position: relative;
+  z-index: 5;
+  border-radius: 3px;
+}
+
+.dropdownTransition-bottom, .dropdownTransition-bottom_left, .dropdownTransition-bottom_right{
+  &-enter-active{
+    animation: animationDropdownBottom 150ms ease-in-out forwards;
+  }
+  &-leave-active{
+    animation: animationDropdownBottom 150ms ease-in-out forwards reverse;
+  }
+}
+
+.dropdownTransition-left, .dropdownTransition-left_bottom{
+  &-enter-active{
+    animation: animationDropdownLeft 150ms ease-in-out forwards;
+  }
+  &-leave-active{
+    animation: animationDropdownLeft 150ms ease-in-out forwards reverse;
+  }
+}
+.dropdownTransition-right, .dropdownTransition-right_top, .dropdownTransition-right_bottom{
+  &-enter-active{
+    animation: animationDropdownRight 150ms ease-in-out forwards;
+  }
+  &-leave-active{
+    animation: animationDropdownRight 150ms ease-in-out forwards reverse;
+  }
+}
+
+.dropdownTransition-top_right{
+  &-enter-active{
+    animation: animationDropdownTop 150ms ease-in-out forwards;
+  }
+  &-leave-active{
+    animation: animationDropdownTop 150ms ease-in-out forwards reverse;
+  }
+}
+
+@keyframes animationDropdownBottom {
+  0%{
+    opacity: 0.01;
+    transform: translateY(10px);
+  }
+  100%{
+    opacity: unset;
+    transform: unset;
+  }
+}
+@keyframes animationDropdownTop {
+  0%{
+    opacity: 0.01;
+    transform: translateY(-10px);
+  }
+  100%{
+    opacity: unset;
+    transform: unset;
+  }
+}
+
+@keyframes animationDropdownLeft {
+  0%{
+    opacity: 0.01;
+    transform: translateX(-10px);
+  }
+  100%{
+    opacity: unset;
+    transform: unset;
+  }
+}
+@keyframes animationDropdownRight {
+  0%{
+    opacity: 0.01;
+    transform: translateX(10px);
+  }
+  100%{
+    opacity: unset;
+    transform: unset;
+  }
+}

@@ -1,9 +1,17 @@
 @import "colors";
 
 body {
+  box-sizing: border-box;
   font-family:"Open Sans",sans-serif;
   font-weight:400;
   background-color: $main_background_color;
+  font-size: 13px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 svg {
