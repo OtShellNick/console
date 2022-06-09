@@ -19,7 +19,7 @@ const Aside = () => {
       <nav className="aside__nav">
         <ul className="nav__list">
           <li className="nav__list_item aside__logo">
-            <Link to="/">
+            <Link className="aside__logo_link" to="/">
               <img src={logo} alt="logo" />
             </Link>
           </li>

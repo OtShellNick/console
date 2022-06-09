@@ -4,8 +4,11 @@
   height: 100vh;
   background-color: $aside-background-color;
 
-  &__logo img {
-    max-width: 30px;
+  &__logo {
+    & img {
+      max-width: 40px;
+      padding: 9px;
+    }
   }
 
   &__nav {
@@ -16,10 +19,30 @@
 .nav__list {
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   &_item {
-    width: 50%;
+    margin-bottom: 10px;
     cursor: pointer;
+
+    & svg {
+      fill: $main_background_color;
+      width: 20px;
+      padding: 10px 16px;
+    }
+
+    &-active {
+      position: relative;
+      background-color: lighten($aside-background-color, 10%);
+
+      &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        right: -1px;
+        top: 31%;
+        border: 8px solid transparent;
+        border-right: 8px solid #f0f0f0;
+      }
+    }
   }
 }
