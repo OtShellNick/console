@@ -1,21 +1,12 @@
 import React from 'react';
-import { usePopperTooltip } from 'react-popper-tooltip';
-
-import DashboardIcon from '@assets/dashboard.svg?tsx';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import 'react-popper-tooltip/dist/styles.css';
+import DashboardIcon from '@assets/dashboard.svg?tsx';
+import Tooltip from '@containers/Tooltip/Tooltip';
 
 const Menu = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const {
-    getArrowProps,
-    getTooltipProps,
-    setTooltipRef,
-    setTriggerRef,
-    visible,
-  } = usePopperTooltip({ placement: 'right' });
 
   const ROUTES = [
     {
@@ -35,15 +26,8 @@ const Menu = () => {
         <li
           className={`nav__list_item ${location.pathname === path ? 'nav__list_item-active' : ''}`}
           key={name}
-          ref={setTriggerRef}
         >
-          {icon}
-          {visible && (
-          <div ref={setTooltipRef} {...getTooltipProps({ className: 'tooltip-container' })}>
-            <div {...getArrowProps({ className: 'tooltip-arrow' })} />
-            {name}
-          </div>
-          )}
+          <Tooltip text={name} placement="right">{icon}</Tooltip>
         </li>
       ))}
     </>

@@ -1,0 +1,35 @@
+@import '@style/main.scss';
+
+.page {
+  padding: 0 15px;
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    max-height: 50px;
+    padding: 15px 0;
+    border-bottom: 1px solid $border-color;
+
+    &_head {
+      font-weight: 500;
+      color: darken($main_background_color, 73%);
+    }
+
+    &_description {
+      font-weight: 400;
+      color: darken($main_background_color, 73%);
+    }
+
+    & svg {
+      fill: $page-svg-fill;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+  }
+
+  &__content {
+    overflow-y: auto;
+    max-height: calc(100vh - 131px);
+  }
+}

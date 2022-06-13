@@ -1,5 +1,6 @@
 $main_background_color: #ffffff;
-$login-text-color: #666666;
+$login-text-color: darken($main_background_color, 60%);
+$page-svg-fill: darken($main_background_color, 69%);
 $border-color: lighten($login-text-color, 20%);
 $notify-background-color: darken($main_background_color, 10%);
 $aside-background-color: darken(saturate(adjust-hue($main_background_color, 209), 32.39), 86.08);

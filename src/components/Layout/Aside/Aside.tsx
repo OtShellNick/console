@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
+import Tooltip from '@containers/Tooltip/Tooltip';
 import { logout } from '@actions/Users/User';
 
 import './Aside.scss';
@@ -25,11 +26,13 @@ const Aside = () => {
           </li>
           <Menu />
           <li className="nav__list_item">
-            <LogoutIcon onClick={() => {
-              logout();
-              navigate('/login', { replace: true, state: { from: location } });
-            }}
-            />
+            <Tooltip text="Logout">
+              <LogoutIcon onClick={() => {
+                logout();
+                navigate('/login', { replace: true, state: { from: location } });
+              }}
+              />
+            </Tooltip>
           </li>
         </ul>
       </nav>
