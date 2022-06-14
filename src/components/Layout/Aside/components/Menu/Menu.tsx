@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import DashboardIcon from '@assets/dashboard.svg?tsx';
+import DnsIcon from '@assets/dns.svg?tsx';
 import Tooltip from '@containers/Tooltip/Tooltip';
 
 const Menu = () => {
@@ -11,10 +12,19 @@ const Menu = () => {
   const ROUTES = [
     {
       name: 'Dashboard',
-      path: '/',
+      path: '',
       icon: <DashboardIcon
         onClick={() => {
           navigate('/');
+        }}
+      />,
+    },
+    {
+      name: 'Cloud DNS',
+      path: 'dns',
+      icon: <DnsIcon
+        onClick={() => {
+          navigate('/dns');
         }}
       />,
     },
@@ -24,7 +34,7 @@ const Menu = () => {
     <>
       {ROUTES.map(({ icon, name, path }) => (
         <li
-          className={`nav__list_item ${location.pathname === path ? 'nav__list_item-active' : ''}`}
+          className={`nav__list_item ${location.pathname.split('/')[1] === path ? 'nav__list_item-active' : ''}`}
           key={name}
         >
           <Tooltip text={name} placement="right">{icon}</Tooltip>

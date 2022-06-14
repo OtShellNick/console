@@ -27,6 +27,7 @@ module.exports = {
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'import/no-unresolved': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/no-unstable-nested-components': 'off',
     'react/button-has-type': [2, {
       button: true,
       submit: true,

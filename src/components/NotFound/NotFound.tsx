@@ -7,7 +7,7 @@ import './NotFound.scss';
 const NotFound = () => {
   const navigate = useNavigate();
   return (
-    <div className="container">
+    <div className="boo-container">
       <Button className="btn_back" size="small" variant="contained" onClick={() => navigate('/', { replace: true })} color="inherit">Go Back</Button>
       <div className="boo-wrapper">
         <div className="boo">

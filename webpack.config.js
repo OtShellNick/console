@@ -94,9 +94,9 @@ module.exports = {
   },
   mode: NODE_ENV || 'production',
   entry: ['@babel/polyfill', path.resolve(__dirname, './src/index.tsx')],
-  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, './build'),
+    publicPath: '/',
     filename: '[name].bundle.js',
   },
   optimization: {
@@ -181,6 +181,7 @@ module.exports = {
     port: 8088,
     static: './build',
     historyApiFallback: true,
+    compress: true,
   },
   plugins: plugins(),
 };

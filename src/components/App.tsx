@@ -13,13 +13,15 @@ import { getPermissionsGroup } from '@actions/Permission/Permission';
 import { getPermissions } from '@store/actions/permissionsActions';
 
 import Layout from '@components/Layout/Layout';
+import Login from '@components/Login/Login';
 
 import 'normalize.css';
 import '@style/main.scss';
 
 const Dashboard = lazy(() => import('@components/Dashboard/Dashboard'));
 const NotFound = lazy(() => import('@components/NotFound/NotFound'));
-const Login = lazy(() => import('@components/Login/Login'));
+const DNS = lazy(() => import('@components/DNS/DNS'));
+const DnsRecord = lazy(() => import('@components/DNS/components/DnsRecord/DnsRecord'));
 
 const App = () => {
   const Authorization = CookieHelper.get('Authorization');
@@ -40,9 +42,14 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Dashboard />} />
+
+        <Route path="dns">
+          <Route index element={<DNS />} />
+          <Route path=":host" element={<DnsRecord />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Route>
       <Route path="/login" element={<Login />} />
-      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

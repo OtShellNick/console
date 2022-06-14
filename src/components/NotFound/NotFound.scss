@@ -27,7 +27,7 @@
   }
 }
 
-.container {
+.boo-container {
   font-family: 'Varela Round', sans-serif;
   color: #9b9b9b;
   position: relative;
@@ -35,7 +35,7 @@
   text-align: center;
   font-size: 16px;
 }
-.container h1 {
+.boo-container h1 {
   font-size: 32px;
   margin-top: 32px;
 }
@@ -45,8 +45,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding-top: 64px;
-  padding-bottom: 64px;
 }
 .boo {
   width: 160px;
