@@ -1,0 +1,11 @@
+@import "@style/main.scss";
+
+.modal {
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    color: darken($main_background_color, 73%);;
+  }
+}

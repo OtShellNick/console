@@ -6,9 +6,14 @@
   &__heading {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     max-height: 50px;
     padding: 15px 0;
     border-bottom: 1px solid $border-color;
+
+    &_left {
+      display: flex;
+    }
 
     &_head {
       font-weight: 500;
@@ -29,7 +34,8 @@
   }
 
   &__content {
+    padding-top: 10px;
     overflow-y: auto;
-    max-height: calc(100vh - 131px);
+    max-height: calc(100vh - 141px);
   }
 }
