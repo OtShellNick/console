@@ -75,7 +75,6 @@ const plugins = () => [
   new MiniCssExtractPlugin({
     filename: filename('css'),
   }),
-  new webpack.HotModuleReplacementPlugin(),
 ];
 
 module.exports = {

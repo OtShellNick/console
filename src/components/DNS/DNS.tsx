@@ -4,6 +4,7 @@ import Table from 'sbx-react-table';
 
 import Page from '@containers/Page/Page';
 import ModalBox from '@containers/Modal/Modal';
+import AddDomainForm from '@components/DNS/components/AddDomainForm/AddDomainForm';
 
 import { getDns } from '@actions/DNS/dns';
 
@@ -36,7 +37,7 @@ const DNS = () => {
         isOpen={openModal}
         hide={() => setModalOpen((prevState) => !prevState)}
       >
-        test
+        <AddDomainForm Hide={() => setModalOpen(false)} />
       </ModalBox>
       <Table
         name="dns"

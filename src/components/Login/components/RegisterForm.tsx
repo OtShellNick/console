@@ -20,7 +20,7 @@ const RegisterForm = () => {
       validationSchema={yup.object().shape({
         firstName: yup.string().required('First Name is required'),
         lastName: yup.string().required('Last Name is required'),
-        phone: yup.number().required('Phone is required'),
+        phone: yup.string().matches(/[+]\d+/, { message: 'Please enter valid phone. Ex: +77777777777', excludeEmptyString: true }).required('Phone is required'),
         email: yup.string().email('Enter a valid email').required('Email is required'),
         password: yup.string().min(8, 'Password should be of minimum 8 characters length').required('Password is required'),
       })}
@@ -106,7 +106,6 @@ const RegisterForm = () => {
             size="small"
             required
             id="outlined-required"
-            type="number"
             name="phone"
             label="Phone"
             onBlur={handleBlur}

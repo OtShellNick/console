@@ -1,0 +1,15 @@
+@import "@style/main.scss";
+
+.users {
+
+  &__photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 25% / 25%;
+    object-fit: cover;
+  }
+}
+
+.sbxTable__tableTbodyTr {
+  cursor: pointer;
+}

@@ -2,10 +2,11 @@
   "name": "sobix",
   "version": "1.0.0",
   "description": "Console for our company",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "watch:stage": "cross-env NODE_ENV=development CONFIG_NAME=stage webpack-dev-server --mode development",
-    "watch:prod": "cross-env NODE_ENV=development CONFIG_NAME=prod webpack-dev-server --mode development"
+    "watch:prod": "cross-env NODE_ENV=development CONFIG_NAME=prod webpack-dev-server --mode development",
+    "build:prod": "cross-env NODE_ENV=production CONFIG_NAME=prod webpack"
   },
   "repository": {
     "type": "git",
@@ -40,7 +41,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
-    "favicons": "^7.0.0-beta.4",
+    "favicons": "6.2.2",
     "favicons-webpack-plugin": "^5.0.2",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
@@ -58,6 +59,7 @@
     "@reduxjs/toolkit": "^1.8.2",
     "cross-env": "^7.0.3",
     "formik": "^2.2.9",
+    "moment": "^2.29.3",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",

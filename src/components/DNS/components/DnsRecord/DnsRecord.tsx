@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import Table from 'sbx-react-table';
 import { useLocation } from 'react-router-dom';
 
 import Page from '@containers/Page/Page';
 import Confirm from '@containers/Confirm/Confirm';
 
-import { getDnsByHosts } from '@actions/DNS/dns';
+import { deleteDnsRecord, getDnsByHosts } from '@actions/DNS/dns';
 
 import DnsIcon from '@assets/dns.svg?tsx';
 import TrashIcon from '@assets/trash.svg?tsx';
 
 import './DnsRecord.scss';
+import Notify from '@helpers/Notify';
 
 type Location = {
   state: {
@@ -20,10 +21,25 @@ type Location = {
 
 const DnsRecord = () => {
   const location = useLocation() as Location;
+  const [openModal, setModalOpen] = useState(false); // TODO add Modal zone create
+  const table = useRef(null);
+
+  const buttons = [
+    {
+      name: 'Add DNS Record',
+      onClick: () => setModalOpen((prevState) => !prevState),
+    },
+  ];
 
   return (
-    <Page name="DNS system" description="Base Dns information." icon={<DnsIcon />}>
+    <Page
+      name="DNS system"
+      description="Base Dns information."
+      icon={<DnsIcon />}
+      buttons={buttons}
+    >
       <Table
+        ref={table}
         name="dns by host"
         action={() => {
           const { name } = location.state;
@@ -45,6 +61,7 @@ const DnsRecord = () => {
           },
           record: {
             name: 'record',
+            // eslint-disable-next-line react/no-unused-prop-types
             val: ({ record }: {record: string}) => <span style={{ display: 'inline-block', overflow: 'hidden', maxWidth: 200 }}>{record}</span>,
           },
           status: {
@@ -55,13 +72,21 @@ const DnsRecord = () => {
           },
           actions: {
             name: 'actions',
-            val: () => (
+            // eslint-disable-next-line react/no-unused-prop-types
+            val: ({ id, host }: {id: number, host: string}) => (
               <Confirm
                 title="Delete DNS Host Record"
                 description="You really want delete DNS Host Record?"
-                onConfirm={() => console.log('yes')}
+                onConfirm={async () => {
+                  try {
+                    await deleteDnsRecord({ id, host });
+                    console.log(table);
+                  } catch (e) {
+                    Notify({ err: e });
+                  }
+                }}
               >
-                <TrashIcon />
+                <TrashIcon className="dns-record__remove" />
               </Confirm>
             ),
           },

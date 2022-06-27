@@ -1,6 +1,21 @@
+@import '@style/main.scss';
+
 .confirm {
   height: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &__title {
+    color: darken($main_background_color, 73%);
+  }
+
+  &__description {
+    color: darken($main_background_color, 73%);
+  }
+
+  &__btn-group {
+    display: flex;
+    justify-content: space-around;
+  }
 }

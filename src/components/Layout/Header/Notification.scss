@@ -134,3 +134,8 @@ $triangle-box-shadow_light: -1px -1px 2px -1px #393939;
     transform: unset;
   }
 }
+
+.notify-box {
+  background-color: darken($main_background_color, 10%);
+  //TODO fix notify styles
+}

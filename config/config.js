@@ -36,7 +36,7 @@ const CONFIG = {
       port: '8090',
     },
     VERSION: {
-      version: 'v2',
+      version: 'v1',
     },
   },
 };

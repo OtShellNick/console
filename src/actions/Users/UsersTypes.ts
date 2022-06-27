@@ -11,7 +11,8 @@ export type TLoginResponseData = {
     firstName: string,
     lastName: string,
     photo?: string,
-    country: string,
+    position?: string,
+    country?: string,
     currency?: string,
     role: number,
     activity: number,
@@ -19,8 +20,11 @@ export type TLoginResponseData = {
     gender: string,
     login: string,
     birthday: string,
-    city: string,
-    links: object,
+    city?: string,
+    links: {
+        skype?: string,
+        telegram?: string
+    },
     isCandidate: boolean,
     wantedSalary?: number,
     roles: (string | number)[],
@@ -35,4 +39,17 @@ export type TRegisterValues = {
     email: string,
     password: string,
     repeatPassword?: string,
+}
+
+export type TQuery = {
+    count: string[];
+    limit: number;
+    offset: number;
+    orderBy: string[];
+    select: string[]
+}
+
+export type TUsersList = {
+    rows: TLoginResponseData[],
+    count: number
 }

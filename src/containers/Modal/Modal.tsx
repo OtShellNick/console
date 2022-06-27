@@ -20,16 +20,18 @@ const ModalBox = ({
   Modal.setAppElement('#modal_root');
 
   const sizesModal = {
-    sm: '30vw',
-    md: '60vw',
-    lg: '90vw',
+    sm: '30',
+    md: '60',
+    lg: '90',
   };
 
   return (
     <Modal
       style={{
         content: {
-          maxWidth: sizesModal[size],
+          inset: `${sizesModal[size]}vh 0`,
+          maxWidth: `${sizesModal[size]}vw`,
+          maxHeight: `${sizesModal[size]}vh`,
           margin: '0 auto',
         },
       }}
