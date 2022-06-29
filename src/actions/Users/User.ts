@@ -2,7 +2,7 @@ import AppServer from '@helpers/server';
 import * as CookieHelper from '@helpers/Cookie';
 
 import {
-  TLoginData, TRegisterValues, TQuery, TUsersList,
+  TLoginData, TRegisterValues, TQuery, TUsersList, TUpdateUserData,
 } from '@actions/Users/UsersTypes';
 import checkAuth from '@helpers/checkAuth';
 
@@ -20,3 +20,5 @@ export const getSelf = () => AppServer.get('sbx-auth/user/me').catch(checkAuth);
 export const getUsersList = (query: TQuery) => AppServer.get('sbx-auth/user/list', query)
   .then((users: TUsersList) => ({ ...users, count: [{ id: users.count }] }))
   .catch(checkAuth);
+
+export const updateUser = (data: TUpdateUserData) => AppServer.put(`/sbx-auth/user/${data.id}`, data).catch(checkAuth);

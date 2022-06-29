@@ -17,6 +17,11 @@
       flex-direction: column;
       justify-content: space-evenly;
       padding: 25px 0 0 25px;
+
+      &_heading {
+        display: flex;
+        justify-content: space-between;
+      }
     }
 
     &_name {

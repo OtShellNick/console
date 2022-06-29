@@ -11,12 +11,15 @@ import { TPermissionsGroup } from '@actions/Permission/PermissionTypes';
 import { loginUser } from '@store/actions/userActions';
 import { getPermissionsGroup } from '@actions/Permission/Permission';
 import { getPermissions } from '@store/actions/permissionsActions';
+import { getRoles } from '@store/actions/rolesActions';
 
 import Layout from '@components/Layout/Layout';
 import Login from '@components/Login/Login';
 
 import 'normalize.css';
 import '@style/main.scss';
+import { getRolesList } from '@actions/Roles/Roles';
+import { TRoles } from '@actions/Roles/RolesTypes';
 
 const Dashboard = lazy(() => import('@components/Dashboard/Dashboard'));
 const NotFound = lazy(() => import('@components/NotFound/NotFound'));
@@ -38,6 +41,7 @@ const App = () => {
     if (Authorization) {
       getSelf().then((user: TLoginResponseData) => dispatch(loginUser(user)));
       getPermissionsGroup().then((groups: TPermissionsGroup) => dispatch(getPermissions(groups)));
+      getRolesList().then((roles: TRoles) => dispatch(getRoles(roles)));
     }
   }, [Authorization]);
 

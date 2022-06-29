@@ -1,11 +1,12 @@
 @import "@style/main.scss";
 
 .modal {
-  height: 50px;
+  height: 100%;
 
   &__heading {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
     font-weight: 500;
     color: darken($main_background_color, 73%);;
   }

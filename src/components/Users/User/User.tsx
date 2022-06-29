@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 import moment from 'moment';
 
 import Page from '@containers/Page/Page';
 import Image from '@containers/Image/Image';
+import ModalBox from '@containers/Modal/Modal';
+import UserUpdateForm from '@components/Users/UserUpdateForm/UserUpdateForm';
 
 import { TLoginResponseData } from '@actions/Users/UsersTypes';
 
@@ -21,6 +24,7 @@ const User = () => {
   const location = useLocation() as TLocation;
   const navigate = useNavigate();
   const [user, setUser] = useState<TLoginResponseData | null>(null);
+  const [openModal, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (!location.state) navigate('/users', { replace: true });
@@ -42,11 +46,31 @@ const User = () => {
       icon={<UserIcon />}
     >
       {user && (
+      <ModalBox
+        size="md"
+        title="User Update"
+        isOpen={openModal}
+        hide={() => setModalOpen((prevState) => !prevState)}
+      >
+        <UserUpdateForm user={user} />
+      </ModalBox>
+      )}
+      {user && (
       <div className="user">
         <div className="user__info">
           {user.photo ? <Image hash={user.photo} /> : <img src={NoImageIcon} alt="empty" />}
           <div className="user__info_main">
-            <h1 className="user__info_name">{`${user.firstName} ${user.lastName}`}</h1>
+            <div className="user__info_main_heading">
+              <h1 className="user__info_name">{`${user.firstName} ${user.lastName}`}</h1>
+              <Button
+                size="small"
+                variant="contained"
+                color="info"
+                onClick={() => setModalOpen(true)}
+              >
+                Edit Profile
+              </Button>
+            </div>
             {user.position && <p className="user__info_position">{user.position}</p>}
             <p className="user__info_text">
               {user.gender === 'male' ? 'Man,' : 'Woman,'}

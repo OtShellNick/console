@@ -29,7 +29,7 @@ const ModalBox = ({
     <Modal
       style={{
         content: {
-          inset: `${sizesModal[size]}vh 0`,
+          inset: sizesModal[size] === '90' ? '5vh 0' : sizesModal[size] === '60' ? '15vh 0' : '30vh 0',
           maxWidth: `${sizesModal[size]}vw`,
           maxHeight: `${sizesModal[size]}vh`,
           margin: '0 auto',
