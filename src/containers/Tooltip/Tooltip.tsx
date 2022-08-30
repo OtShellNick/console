@@ -17,7 +17,9 @@ const Tooltip = ({ children, text, placement }: TTooltipProps) => {
     setTooltipRef,
     setTriggerRef,
     visible,
-  } = usePopperTooltip({ placement, delayShow: 100, delayHide: 100 });
+  } = usePopperTooltip({
+    placement, delayShow: 100, delayHide: 100, offset: [0, 0],
+  });
 
   return (
     <div ref={setTriggerRef}>

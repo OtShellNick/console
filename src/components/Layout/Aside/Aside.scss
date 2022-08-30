@@ -31,18 +31,7 @@
     }
 
     &-active {
-      position: relative;
       background-color: lighten($aside-background-color, 10%);
-
-      &:after {
-        display: block;
-        content: '';
-        position: absolute;
-        right: -1px;
-        top: 31%;
-        border: 8px solid transparent;
-        border-right: 8px solid #f0f0f0;
-      }
     }
   }
 }
