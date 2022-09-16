@@ -1,0 +1,20 @@
+@import "@style/main.scss";
+
+.ql-editor { min-height: 25vh }
+
+.reports {
+
+  &__edit {
+    display: flex;
+    align-items: center;
+
+    &_icon {
+      cursor: pointer;
+      fill: darken($border-color, 20%);
+
+      &:hover {
+        fill: darken($border-color, 35%);
+      }
+    }
+  }
+}

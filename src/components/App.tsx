@@ -28,6 +28,8 @@ const DnsRecord = lazy(() => import('@components/DNS/components/DnsRecord/DnsRec
 const Clusters = lazy(() => import('@components/Services/Clusters'));
 const Users = lazy(() => import('@components/Users/Users'));
 const User = lazy(() => import('@components/Users/User/User'));
+const Reports = lazy(() => import('@components/Reports/Reports'));
+const AllReports = lazy(() => import('@components/AllReports/AllReports'));
 
 const App = () => {
   const Authorization = CookieHelper.get('Authorization');
@@ -62,6 +64,11 @@ const App = () => {
         <Route path="users">
           <Route index element={<Users />} />
           <Route path=":id" element={<User />} />
+        </Route>
+
+        <Route path="reports">
+          <Route index element={<Reports />} />
+          <Route path="all" element={<AllReports />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
