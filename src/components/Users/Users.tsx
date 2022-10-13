@@ -35,17 +35,28 @@ const Users = () => {
           photo: {
             name: 'Photo',
             // eslint-disable-next-line react/no-unused-prop-types,react/require-default-props
-            val: ({ photo }: {photo?: string}) => {
+            val: ({ photo }: { photo?: string }) => {
               if (photo) {
-                return <Image className="users__photo" hash={photo} />;
+                return (
+                  <Image
+                    className="users__photo"
+                    hash={photo}
+                  />
+                );
               }
 
-              return <img className="users__photo" src={NoImageIcon} alt="'N/A" />;
+              return (
+                <img
+                  className="users__photo"
+                  src={NoImageIcon}
+                  alt="'N/A"
+                />
+              );
             },
           },
           name: {
             name: 'Name',
-            val: ({ firstName, lastName }: {firstName: string, lastName: string}) => `${firstName} ${lastName}`,
+            val: ({ firstName, lastName }: { firstName: string; lastName: string }) => `${firstName} ${lastName}`,
           },
           email: {
             name: 'Email',
@@ -53,11 +64,8 @@ const Users = () => {
           phone: {
             name: 'Phone',
             // eslint-disable-next-line react/no-unused-prop-types
-            val: ({ phone }: {phone: string[]}) => (
-              <ul>
-                {phone.length > 0 ? phone.map((ph) => (<li key={ph + 1}>{`${ph}`}</li>
-                )) : 'N/A'}
-              </ul>
+            val: ({ phone }: { phone: string[] }) => (
+              <ul>{phone.length > 0 ? phone.map((ph) => <li key={ph + 1}>{`${ph}`}</li>) : 'N/A'}</ul>
             ),
           },
           position: {

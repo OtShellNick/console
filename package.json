@@ -6,7 +6,8 @@
   "scripts": {
     "watch:stage": "cross-env NODE_ENV=development CONFIG_NAME=stage webpack-dev-server --mode development",
     "watch:prod": "cross-env NODE_ENV=development CONFIG_NAME=prod webpack-dev-server --mode development",
-    "build:prod": "cross-env NODE_ENV=production CONFIG_NAME=prod webpack"
+    "build:prod": "cross-env NODE_ENV=production CONFIG_NAME=prod webpack",
+    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
   },
   "repository": {
     "type": "git",

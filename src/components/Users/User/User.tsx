@@ -6,6 +6,7 @@ import moment from 'moment';
 import Page from '@containers/Page/Page';
 import Image from '@containers/Image/Image';
 import ModalBox from '@containers/Modal/Modal';
+
 import UserUpdateForm from '@components/Users/UserUpdateForm/UserUpdateForm';
 
 import { TLoginResponseData } from '@actions/Users/UsersTypes';
@@ -13,6 +14,7 @@ import { TLoginResponseData } from '@actions/Users/UsersTypes';
 import UserIcon from '@assets/user.svg?tsx';
 // @ts-ignore
 import NoImageIcon from '@assets/no_image.jpg';
+import UpdateCVForm from '@components/Users/User/components/UpdateCVForm/UpdateCVForm';
 
 import './User.scss';
 
@@ -25,6 +27,7 @@ const User = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<TLoginResponseData | null>(null);
   const [openModal, setModalOpen] = useState(false);
+  const [updateForm, setUpdateForm] = useState(false);
 
   useEffect(() => {
     if (!location.state) navigate('/users', { replace: true });
@@ -113,6 +116,18 @@ const User = () => {
         </div>
       </div>
       )}
+      <div>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            setUpdateForm((prevState) => !prevState);
+          }}
+        >
+          cv
+        </button>
+        {updateForm && <UpdateCVForm />}
+      </div>
     </Page>
   );
 };

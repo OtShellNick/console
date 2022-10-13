@@ -5,10 +5,10 @@ import {
 import { useDispatch } from 'react-redux';
 import * as CookieHelper from '@helpers/Cookie';
 
-import { getSelf } from '@actions/Users/User';
+import { getAllUsersList, getSelf } from '@actions/Users/User';
 import { TLoginResponseData } from '@actions/Users/UsersTypes';
 import { TPermissionsGroup } from '@actions/Permission/PermissionTypes';
-import { loginUser } from '@store/actions/userActions';
+import { loginUser, usersList } from '@store/actions/userActions';
 import { getPermissionsGroup } from '@actions/Permission/Permission';
 import { getPermissions } from '@store/actions/permissionsActions';
 import { getRoles } from '@store/actions/rolesActions';
@@ -44,6 +44,7 @@ const App = () => {
       getSelf().then((user: TLoginResponseData) => dispatch(loginUser(user)));
       getPermissionsGroup().then((groups: TPermissionsGroup) => dispatch(getPermissions(groups)));
       getRolesList().then((roles: TRoles) => dispatch(getRoles(roles)));
+      getAllUsersList().then((users: Object) => dispatch(usersList(users)));
     }
   }, [Authorization]);
 

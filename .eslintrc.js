@@ -3,10 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -15,10 +12,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-  ],
+  plugins: ['react', '@typescript-eslint'],
   rules: {
     'linebreak-style': ['error', 'unix'],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
@@ -28,11 +22,14 @@ module.exports = {
     'import/no-unresolved': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-unstable-nested-components': 'off',
-    'react/button-has-type': [2, {
-      button: true,
-      submit: true,
-      reset: true,
-    }],
+    'react/button-has-type': [
+      2,
+      {
+        button: true,
+        submit: true,
+        reset: true,
+      },
+    ],
     'default-param-last': 'off',
   },
   settings: {

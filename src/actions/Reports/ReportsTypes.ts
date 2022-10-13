@@ -1,9 +1,10 @@
 export interface IQuery {
-    count: string[],
+    count?: string[],
     limit: number,
-    offset: number,
-    orderBy: string[],
-    select: string[]
+    offset?: number,
+    orderBy?: string[],
+    select?: string[]
+    where?: [(string | number)[], (string | number)[]]
 }
 
 type count = number;

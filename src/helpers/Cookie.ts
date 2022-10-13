@@ -32,13 +32,13 @@ export function set(name: string, value: any, options: any) {
 
   let updatedCookie = `${name}=${value}`;
 
-  for (const propName in options) {
+  Object.keys(options).forEach((propName) => {
     updatedCookie += `; ${propName}`;
     const propValue = options[propName];
     if (propValue !== true) {
       updatedCookie += `=${propValue}`;
     }
-  }
+  });
 
   document.cookie = updatedCookie;
 }

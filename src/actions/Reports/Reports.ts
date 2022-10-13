@@ -6,6 +6,9 @@ export const getReports = (query: IQuery) => AppServer.get('sbx-auth/report/list
   .then((resp: IReportsData) => ({ ...resp, count: [{ id: resp.count }] }))
   .catch(checkAuth);
 
+export const getReportsList = (query: IQuery) => AppServer.get('sbx-auth/report/list', query)
+  .catch(checkAuth);
+
 export const addReport = (data: IReportData) => AppServer.post('sbx-auth/report', data)
   .catch(checkAuth);
 

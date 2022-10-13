@@ -21,4 +21,7 @@ export const getUsersList = (query: TQuery) => AppServer.get('sbx-auth/user/list
   .then((users: TUsersList) => ({ ...users, count: [{ id: users.count }] }))
   .catch(checkAuth);
 
+export const getAllUsersList = () => AppServer.get('sbx-auth/user/all')
+  .catch(checkAuth);
+
 export const updateUser = (data: TUpdateUserData) => AppServer.put(`/sbx-auth/user/${data.id}`, data).catch(checkAuth);

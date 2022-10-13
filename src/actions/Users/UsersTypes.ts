@@ -32,6 +32,8 @@ export type TLoginResponseData = {
     __token: string
 }
 
+export type TUser = Omit<TLoginResponseData, '__token'>;
+
 export type TRegisterValues = {
     firstName: string,
     lastName: string,
